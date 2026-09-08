@@ -1,0 +1,38 @@
+# Hand corrections to the publications generated from Google Scholar.
+#
+# Copy this file to _data/publication_overrides.yml (drop the .example) and
+# uncomment what you need. Only that file is read; this one is a reference.
+#
+# Files under _publications/ are regenerated on every sync, so editing them
+# directly does nothing -- corrections have to live here.
+#
+# Each top-level key is either the slug from a generated filename (the part
+# before ".md") or the Scholar citation id from that file's `scholarurl`. The
+# slug is usually the friendlier choice.
+#
+# Recognised fields:
+#   skip: true    drop the publication from the site entirely
+#   category:     one of books, manuscripts, conferences, preprints
+#   title:        replaces Scholar's title (also recomputes the slug)
+#   venue:        replaces Scholar's venue, which is often an ugly abbreviation
+#   date:         YYYY-MM-DD; controls ordering (also recomputes the slug)
+#   paperurl:     link shown as "Download Paper"
+#   excerpt:      one-line summary shown on the publications list
+#   body:         replaces the abstract on the publication's own page
+#
+# Note: changing `title` or `date` changes the slug, and therefore the page's
+# URL. If you have linked to a publication page elsewhere, prefer leaving those
+# two alone.
+
+# Give a preprint its real venue once it is accepted somewhere:
+# 2026-05-08-drip-r-a-benchmark-for-decision-making-and-reasoning-under-real-world:
+#   category: conferences
+#   venue: "Proceedings of EMNLP 2026"
+
+# Hide something that shows up on the Scholar profile but does not belong here:
+# 2019-01-01-some-stray-record:
+#   skip: true
+
+# Shorten a venue that Scholar reports at full ceremonial length:
+# 2025-04-01-lm-pub-quiz-a-comprehensive-framework-for-zero-shot-evaluation-of-relational:
+#   venue: "NAACL 2025 (System Demonstrations)"

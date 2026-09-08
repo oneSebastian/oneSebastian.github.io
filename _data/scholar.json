@@ -1,0 +1,83 @@
+{
+  "profile": "https://scholar.google.com/citations?user=7gohUaEAAAAJ&hl=en",
+  "updated_at": "2026-09-08",
+  "publication_count": 5,
+  "total_citations": 13,
+  "publications": [
+    {
+      "citation_id": "7gohUaEAAAAJ:u-x6o8ySG0sC",
+      "slug": "2024-07-10-how-do-users-design-scientific-workflows-the-case-of-snakemake-and-nextflow",
+      "title": "How Do Users Design Scientific Workflows? The Case of Snakemake and Nextflow",
+      "authors": "Sebastian Pohl, Nourhan Elfaramawy, Artur Miling, Kedi Cao, Birte Kehr, Matthias Weidlich",
+      "venue": "Proceedings of the 36th International Conference on Scientific and Statistical Database Management",
+      "date": "2024-07-10",
+      "year": "2024",
+      "category": "conferences",
+      "paperurl": "https://dl.acm.org/doi/abs/10.1145/3676288.3676290",
+      "scholarurl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:u-x6o8ySG0sC",
+      "abstract": "Scientific workflows automate the analysis of large-scale scientific data, fostering the reuse of data processing operators as well as the reproducibility and traceability of analysis results. In exploratory research, however, workflows are continuously adapted, utilizing a wide range of tools and software libraries, to test scientific hypotheses. Script-based workflow engines cater to the required flexibility through direct integration of programming primitives, but lack abstractions for interactive exploration of the workflow design by a user during workflow execution. In this paper, we study the requirements for the design of interactive workflows through the lens of existing workflow collections. Specifically, we focus on two widely used script-based workflow engines: Snakemake and Nextflow. For Snakemake, we collected workflows from 1602 GitHub repositories that are listed in the Snakemake workflow catalog. For Nextflow …",
+      "cited_by": 9,
+      "citation": "Sebastian Pohl, Nourhan Elfaramawy, Artur Miling, Kedi Cao, Birte Kehr, Matthias Weidlich. (2024). \"How Do Users Design Scientific Workflows? The Case of Snakemake and Nextflow.\" <i>Proceedings of the 36th International Conference on Scientific and Statistical Database Management</i>."
+    },
+    {
+      "citation_id": "7gohUaEAAAAJ:d1gkVwhDpl0C",
+      "slug": "2025-04-01-lm-pub-quiz-a-comprehensive-framework-for-zero-shot-evaluation-of-relational",
+      "title": "LM-PUB-QUIZ: A Comprehensive Framework for Zero-Shot Evaluation of Relational Knowledge in Language Models",
+      "authors": "Max Ploner, Jacek Wiland, Sebastian Pohl, Alan Akbik",
+      "venue": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (System Demonstrations)",
+      "date": "2025-04-01",
+      "year": "2025",
+      "category": "conferences",
+      "paperurl": "https://aclanthology.org/2025.naacl-demo.4/",
+      "scholarurl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:d1gkVwhDpl0C",
+      "abstract": "Knowledge probing evaluates to which extent a language model (LM) has acquired relational knowledge during its pre-training phase. It provides a cost-effective means of comparing LMs of different sizes and training setups and is useful for monitoring knowledge gained or lost during continual learning (CL). In prior work, we presented an improved knowledge probe called BEAR (Wiland et al., 2024), which enables the comparison of LMs trained with different pre-training objectives (causal and masked LMs) and addresses issues of skewed distributions in previous probes to deliver a more unbiased reading of LM knowledge. With this paper, we present LM-Pub-Quiz, a Python framework and leaderboard built around the BEAR probing mechanism that enables researchers and practitioners to apply it in their work. It provides options for standalone evaluation and direct integration into the widely-used training pipeline of the Hugging Face transformers library. Further, it provides a fine-grained analysis of different knowledge types to assist users in better understanding the knowledge in each evaluated LM. We publicly release LM-Pub-Quiz as an open-source project. https://lm-pub-quiz. github. io/",
+      "cited_by": 4,
+      "citation": "Max Ploner, Jacek Wiland, Sebastian Pohl, Alan Akbik. (2025). \"LM-PUB-QUIZ: A Comprehensive Framework for Zero-Shot Evaluation of Relational Knowledge in Language Models.\" <i>Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (System Demonstrations)</i>."
+    },
+    {
+      "citation_id": "7gohUaEAAAAJ:9yKSN-GCB0IC",
+      "slug": "2025-08-01-towards-a-principled-evaluation-of-knowledge-editors",
+      "title": "Towards a Principled Evaluation of Knowledge Editors",
+      "authors": "Sebastian Pohl, Max Ploner, Alan Akbik",
+      "venue": "Proceedings of the First Workshop on Large Language Model Memorization (L2M2)",
+      "date": "2025-08-01",
+      "year": "2025",
+      "category": "conferences",
+      "paperurl": "https://aclanthology.org/2025.l2m2-1.4/",
+      "scholarurl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:9yKSN-GCB0IC",
+      "abstract": "Model editing has been gaining increasing attention over the past few years. For Knowledge Editing in particular, more challenging evaluation datasets have recently been released. These datasets use different methodologies to score the success of editors. Yet, it remains under-explored how robust these methodologies are and whether they unfairly favor some editors. Moreover, the disruptive impact of these editors on overall model capabilities remains a constant blind spot. We address both of these problems and show that choosing different metrics and evaluation methodologies as well as different edit batch sizes can lead to a different ranking of knowledge editors. Crucially we demonstrate this effect also on general language understanding tasks evaluated alongside the knowledge editing tasks. Further we include a manual assessment of the string matching based evaluation method for knowledge editing that is favored by recently released datasets, revealing a tendency to produce false positive matches.",
+      "cited_by": 0,
+      "citation": "Sebastian Pohl, Max Ploner, Alan Akbik. (2025). \"Towards a Principled Evaluation of Knowledge Editors.\" <i>Proceedings of the First Workshop on Large Language Model Memorization (L2M2)</i>."
+    },
+    {
+      "citation_id": "7gohUaEAAAAJ:2osOgNQ5qMEC",
+      "slug": "2026-05-08-drip-r-a-benchmark-for-decision-making-and-reasoning-under-real-world",
+      "title": "DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain",
+      "authors": "Hsuvas Borkakoty, Sebastian Pohl, Cheng Wang, Bei Chen, Yufang Hou",
+      "venue": "arXiv preprint arXiv:2605.07699",
+      "date": "2026-05-08",
+      "year": "2026",
+      "category": "preprints",
+      "paperurl": "https://arxiv.org/abs/2605.07699",
+      "scholarurl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:2osOgNQ5qMEC",
+      "abstract": "LLM-based agents are increasingly deployed for routine but consequential tasks in real-world domains, where their behavior is governed by inherently ambiguous domain policies that admit multiple valid interpretations. Despite the prevalence of such ambiguities in practice, existing agent benchmarks largely assume unambiguous, well-specified policies, leaving a critical evaluation gap. We introduce DRIP-R, a benchmark that systematically exploits real-world retail policy ambiguities to construct scenarios in which no single correct resolution exists. DRIP-R comprises a curated set of policy-ambiguous return scenarios paired with a realistic customer personas, a full-duplex conversational simulation with tool-calling capabilities and a multi-judge evaluation framework covering policy adherence, dialogue quality, behavioral alignment, and resolution quality. Our experiments show that frontier models fundamentally disagree on identical policy-ambiguous scenarios, confirming that ambiguity poses a genuine and systematic challenge to LLM decision-making.",
+      "cited_by": 0,
+      "citation": "Hsuvas Borkakoty, Sebastian Pohl, Cheng Wang, Bei Chen, Yufang Hou. (2026). \"DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain.\" <i>arXiv preprint arXiv:2605.07699</i>."
+    },
+    {
+      "citation_id": "7gohUaEAAAAJ:qjMakFHDy7sC",
+      "slug": "2026-06-01-who-annotates-in-nlp-a-large-scale-assessment-of-human-annotation-reporting",
+      "title": "Who Annotates in NLP? A Large-scale Assessment of Human Annotation Reporting between 2018 and 2025",
+      "authors": "Maria Kunilovskaya, Gagan Bhatia, Lisa Sophie Albertelli, Yanran Chen, Christian Greisinger, Lotta Kiefer, Christoph Leiter, Subhadeep Roy, Tewodros Achamaleh, Muhammad Arslan Manzoor, Sebastian Pohl, Yufang Hou, Steffen Eger",
+      "venue": "arXiv preprint arXiv:2606.02255",
+      "date": "2026-06-01",
+      "year": "2026",
+      "category": "preprints",
+      "paperurl": "https://arxiv.org/abs/2606.02255",
+      "scholarurl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:qjMakFHDy7sC",
+      "abstract": "Human annotation is the empirical foundation of much NLP research, from dataset construction to model evaluation, but papers often leave unclear who produced the annotations and how the annotation process was controlled. We provide the first large-scale, task-level audit of human annotation reporting across major NLP venues, asking which annotation details are documented, which are missing, and how reporting varies across time, topic, venue, and intended use of human judgment. We introduce a unified taxonomy of annotation-reporting practices and validate an LLM-assisted extraction pipeline against Annotated-gold, a human-adjudicated gold standard of 41 papers and 72 annotation tasks, where the best model reaches human-comparable agreement with adjudicated labels, with Krippendorff's alpha of 0.606 versus 0.585 for human-human agreement. Using this pipeline, we construct Annotated-llm, a dataset covering ACL-venue papers from 2018-2025, with 2,667 extracted annotation tasks from 1,603 papers, and find that papers frequently report operational details such as recruitment strategies, annotator expertise, and annotation volume, but often omit details needed to assess annotation validity, including training, language proficiency, compensation, socio-demographics, adjudication, and agreement values, especially in model-evaluation studies. Our results show that annotation reporting in NLP has improved over time but remains uneven, and they establish a scalable framework and bare-minimum reporting recommendations for making human annotation more reliable, reproducible, and interpretable.",
+      "cited_by": 0,
+      "citation": "Maria Kunilovskaya, Gagan Bhatia, Lisa Sophie Albertelli, Yanran Chen, Christian Greisinger, Lotta Kiefer, Christoph Leiter, Subhadeep Roy, Tewodros Achamaleh, Muhammad Arslan Manzoor, Sebastian Pohl, Yufang Hou, Steffen Eger. (2026). \"Who Annotates in NLP? A Large-scale Assessment of Human Annotation Reporting between 2018 and 2025.\" <i>arXiv preprint arXiv:2606.02255</i>."
+    }
+  ]
+}

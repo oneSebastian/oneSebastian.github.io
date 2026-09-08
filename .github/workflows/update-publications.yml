@@ -1,0 +1,70 @@
+name: Update publications from Google Scholar
+
+# Rebuilds _publications/ from the Google Scholar profile configured in
+# _config.yml and commits the result, which is what makes GitHub Pages rebuild
+# the site.
+#
+# Google Scholar has no API and rate-limits datacenter IPs, so runs from GitHub's
+# runners are sometimes served a CAPTCHA instead of the profile. That is treated
+# as "try again next week" rather than a failure: the script writes nothing, the
+# committed publications stay as they are, and the run ends with a warning. If it
+# happens for weeks on end, run the script locally instead -- see the README.
+
+on:
+  schedule:
+    # Mondays at 06:17 UTC. The odd minute keeps this off the top-of-hour spike
+    # when GitHub queues scheduled jobs (and Scholar sees the most bot traffic).
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+# Only one sync at a time; a queued run would just race the first one's commit.
+concurrency:
+  group: update-publications
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Only needed if _data/publication_overrides.yml exists; the fetch and
+      # generation themselves are standard library only.
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Sync from Google Scholar
+        id: sync
+        run: |
+          set +e
+          python scripts/scholar_sync.py --delay 3
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          case $code in
+            0) ;;
+            3) echo "::warning::Google Scholar rate-limited this runner; publications left unchanged." ;;
+            *) echo "::error::scholar_sync failed with exit code $code"; exit "$code" ;;
+          esac
+
+      - name: Commit any changes
+        if: steps.sync.outputs.code == '0'
+        run: |
+          git add -A -- _publications _data/scholar.json
+          # --cached, because a brand-new publication is an untracked file that
+          # a plain `git diff` would not see.
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update publications from Google Scholar"
+          git push

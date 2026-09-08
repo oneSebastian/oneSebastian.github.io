@@ -1,0 +1,4 @@
+# scholar_sync.py fetches and generates using only the standard library.
+# PyYAML is needed only to read _data/publication_overrides.yml, and only if
+# that file exists.
+PyYAML>=6.0
