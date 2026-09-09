@@ -197,6 +197,16 @@ def test_the_writing_page_still_handles_being_empty():
     assert "{% else %}" in page and "Nothing here yet" in page
 
 
+def test_the_writing_page_introduces_the_list():
+    """The intro belongs above the entries, inside the non-empty branch."""
+    page = (REPO_ROOT / "_pages" / "writing.md").read_text(encoding="utf-8")
+    intro = page.find("non-academic writing")
+    loop = page.find("{% for post in entries %}")
+
+    assert intro != -1, "the writing page lost its intro sentence"
+    assert intro < loop, "the intro must come above the list"
+
+
 def test_every_writing_entry_has_the_fields_the_page_reads():
     assert writing_paths(), "no writing entries found"
 

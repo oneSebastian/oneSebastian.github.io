@@ -10,6 +10,8 @@ author_profile: true
 {% assign entries = site.writing | sort: "date" | reverse %}
 
 {% if entries.size > 0 %}
+  <div class="wordwrap">Sometimes I also do some non-academic writing (usually in German). You can find some examples here.</div>
+
   <!-- Deliberately not archive-single.html: that include labels every link
        "Download Paper", which is the wrong word for a short story. -->
   {% for post in entries %}
