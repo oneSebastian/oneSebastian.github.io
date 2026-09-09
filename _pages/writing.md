@@ -12,26 +12,25 @@ author_profile: true
 {% if entries.size > 0 %}
   <div class="wordwrap">Sometimes I also do some non-academic writing (usually in German). You can find some examples here.</div>
 
-  <!-- Deliberately not archive-single.html: that include labels every link
-       "Download Paper", which is the wrong word for a short story. -->
+  <!-- Same reference-list shape as the Publications page: the entries have no
+       page of their own (the writing collection sets output: false), so the
+       title links straight at the PDF and the publishing details are printed
+       here rather than one click away. -->
+  <ol class="publication-list">
   {% for post in entries %}
-  <div class="list__item">
-    <article class="archive__item">
-      <h2 class="archive__item-title">
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
-      </h2>
-      <p class="page__meta">
-        {% if post.type %}{{ post.type }}, {% endif %}{{ post.date | date: "%Y" }}{% if post.venue %} &middot; <i>{{ post.venue }}</i>{% endif %}
-      </p>
-      {% if post.excerpt %}
-      <p class="archive__item-excerpt">{{ post.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
-      {% endif %}
-      {% if post.pdfurl %}
-      <p><a href="{{ base_path }}{{ post.pdfurl }}">{{ post.pdflabel | default: "Read the PDF" }}</a></p>
-      {% endif %}
-    </article>
-  </div>
+    {% comment %} A title ending in '?' or '!' must not also gain a period. {% endcomment %}
+    {% assign last_char = post.title | strip | slice: -1 %}
+    {% if last_char == "." or last_char == "?" or last_char == "!" %}
+      {% assign title_end = "" %}
+    {% else %}
+      {% assign title_end = "." %}
+    {% endif %}
+    <li class="publication-list__item">
+      <span class="publication-list__title">{% if post.pdfurl %}<a href="{{ base_path }}{{ post.pdfurl }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}{{ title_end }}</span>
+      <span class="publication-list__venue">{% if post.type %}{{ post.type }}{% if post.language %}, in {{ post.language }}{% endif %}. {% endif %}{% if post.venue %}In <i>{{ post.venue }}</i>{% if post.venue_note %} ({{ post.venue_note }}){% endif %}{% if post.publisher %}, {{ post.publisher }}{% endif %}, {% endif %}{{ post.date | date: "%Y" }}.</span>
+    </li>
   {% endfor %}
+  </ol>
 {% else %}
   <p>A place for the writing I do that isn't a paper — essays, notes, and
   whatever else doesn't belong on the <a href="{{ base_path }}/publications/">publications</a>

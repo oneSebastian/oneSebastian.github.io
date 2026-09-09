@@ -228,8 +228,9 @@ collections:
     output: true
     permalink: /:collection/:path/
   writing:
-    output: true
-    permalink: /:collection/:path/
+    # No per-entry pages: the Writing page prints each entry in full and links
+    # its PDF directly, so a subpage would only be a stop on the way there.
+    output: false
 
 
 # These settings control how pages and collections are included in the site

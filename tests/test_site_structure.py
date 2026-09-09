@@ -226,16 +226,28 @@ def test_every_writing_pdf_exists():
         assert (REPO_ROOT / pdfurl.lstrip("/")).is_file(), f"{path.name} links a missing {pdfurl}"
 
 
-def test_writing_entries_do_not_link_a_pdf_only_in_prose():
-    """If the body links a PDF, pdfurl must too, so the index shows the link."""
+def test_the_writing_collection_has_no_pages_of_its_own(config):
+    """The Writing page prints each entry in full, so a subpage is a dead stop."""
+    assert config["collections"]["writing"]["output"] is False
+
+    page = (REPO_ROOT / "_pages" / "writing.md").read_text(encoding="utf-8")
+    assert "post.url" not in page, "linking post.url would point at a page that is not built"
+
+
+def test_every_writing_entry_links_its_pdf():
+    """With no subpage, pdfurl is the entry's only way to reach the text."""
     for path in writing_paths():
-        text = path.read_text(encoding="utf-8")
-        body = text.split("---\n", 2)[2]
-        if "/files/" in body:
-            assert front_matter(path).get("pdfurl"), (
-                f"{path.name} links a PDF in its body but sets no pdfurl, "
-                "so the Writing index will not offer it"
-            )
+        assert front_matter(path).get("pdfurl"), f"{path.name} has nothing to link to"
+
+
+def test_writing_entries_keep_their_details_in_front_matter():
+    """Nothing renders the body once the collection stops emitting pages."""
+    for path in writing_paths():
+        body = path.read_text(encoding="utf-8").split("---\n", 2)[2].strip()
+        assert not body, (
+            f"{path.name} has a body, which no page renders; move it into front "
+            "matter (type, language, venue, venue_note, publisher)"
+        )
 
 
 def test_removed_pages_are_gone():
