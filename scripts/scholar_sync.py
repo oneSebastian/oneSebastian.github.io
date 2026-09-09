@@ -527,6 +527,10 @@ def render_markdown(record: dict) -> str:
         f"date: {record['date']}",
         f"venue: {_yaml_quote(record['venue'])}",
     ]
+    # The publications page renders authors as their own line, so they are
+    # emitted separately rather than only inside the citation string.
+    if record.get("authors"):
+        lines.append(f"authors: {_yaml_quote(record['authors'])}")
     if record.get("paperurl"):
         lines.append(f"paperurl: {_yaml_quote(record['paperurl'])}")
     if record.get("scholarurl"):

@@ -30,11 +30,11 @@ author:
   location         : "Linz, Austria"
   employer         : "Interdisciplinary Transformation University Austria"
   uri              : # URL
-  email            : "-" 
+  email            : "sebastian.pohl@it-u.at"
 
   # Academic websites
   academia         : # URL
-  arxiv            : "http://arxiv.org/a/pohl_s_1"
+  arxiv            : "https://arxiv.org/a/pohl_s_1"
   googlescholar    : "https://scholar.google.com/citations?user=7gohUaEAAAAJ&hl=en"
   inspire-hep      : # URL
   impactstory      : # URL

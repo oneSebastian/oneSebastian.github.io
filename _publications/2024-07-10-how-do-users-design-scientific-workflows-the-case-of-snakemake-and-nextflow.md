@@ -6,6 +6,7 @@ collection: publications
 category: conferences
 date: 2024-07-10
 venue: "Proceedings of the 36th International Conference on Scientific and Statistical Database Management"
+authors: "Sebastian Pohl, Nourhan Elfaramawy, Artur Miling, Kedi Cao, Birte Kehr, Matthias Weidlich"
 paperurl: "https://dl.acm.org/doi/abs/10.1145/3676288.3676290"
 scholarurl: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:u-x6o8ySG0sC"
 citation: "Sebastian Pohl, Nourhan Elfaramawy, Artur Miling, Kedi Cao, Birte Kehr, Matthias Weidlich. (2024). \"How Do Users Design Scientific Workflows? The Case of Snakemake and Nextflow.\" <i>Proceedings of the 36th International Conference on Scientific and Statistical Database Management</i>."

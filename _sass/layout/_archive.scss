@@ -86,6 +86,35 @@
 
 
 /*
+   Publication list -- reference-list style entries on /publications/
+   ========================================================================== */
+
+.publication-list {
+  margin: 0 0 2em;
+  padding-left: 1.5em;
+  font-size: $type-size-6;
+
+  > li {
+    margin-bottom: 0.75em;
+    padding-left: 0.25em;
+    line-height: 1.5;
+  }
+}
+
+.publication-list__authors {
+  color: var(--global-text-color-light);
+}
+
+.publication-list__title a {
+  font-weight: bold;
+}
+
+.publication-list__venue {
+  color: var(--global-text-color-light);
+}
+
+
+/*
    List view
    ========================================================================== */
 

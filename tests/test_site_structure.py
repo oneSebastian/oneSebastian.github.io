@@ -83,6 +83,39 @@ def test_the_avatar_file_exists(config):
     assert (REPO_ROOT / "images" / avatar).is_file(), f"images/{avatar} is missing"
 
 
+def test_the_contact_email_is_a_real_address(config):
+    """author-profile.html turns this into a mailto: link unconditionally, so a
+    placeholder like '-' ships as a dead link on every page."""
+    email = config["author"]["email"]
+
+    assert re.fullmatch(r"[^@\s]+@[^@\s]+\.[a-z]{2,}", email), f"author.email is {email!r}"
+
+
+@pytest.mark.parametrize("field", ["arxiv", "googlescholar", "orcid"])
+def test_the_academic_profile_links_are_absolute_urls(config, field):
+    """These are emitted as hrefs verbatim; anything but a URL is a dead link."""
+    value = config["author"][field]
+
+    assert value, f"author.{field} is not set"
+    assert value.startswith("https://"), f"author.{field} is {value!r}"
+
+
+def test_the_orcid_link_points_at_an_orcid_id(config):
+    assert re.fullmatch(r"https://orcid\.org/\d{4}-\d{4}-\d{4}-\d{3}[\dX]",
+                        config["author"]["orcid"])
+
+
+def test_the_sidebar_lets_the_biographic_lines_wrap(config):
+    """`.author__urls li` is nowrap for the icon links; without an override the
+    employer name overflows the 250px sidebar and is clipped mid-word."""
+    sidebar = (REPO_ROOT / "_sass" / "layout" / "_sidebar.scss").read_text(encoding="utf-8")
+    rule = re.search(r"li\.author__desktop\s*\{(.*?)\}", sidebar, re.DOTALL)
+
+    assert rule, "no li.author__desktop rule in _sidebar.scss"
+    assert "white-space: normal" in rule.group(1)
+    assert len(config["author"]["employer"]) > 20  # the line this rule exists for
+
+
 def test_publication_categories_cover_what_the_sync_can_emit(config):
     import scholar_sync as ss
 
@@ -220,6 +253,7 @@ def test_every_publication_has_the_fields_the_templates_read(config):
         assert meta["title"], path.name
         assert meta["venue"], path.name
         assert meta["citation"], path.name
+        assert meta["authors"], path.name  # the publications page prints these
 
 
 def test_publication_filenames_match_their_dates():
@@ -234,6 +268,34 @@ def test_the_scholar_cache_matches_the_generated_files():
     cache = json.loads((REPO_ROOT / "_data" / "scholar.json").read_text(encoding="utf-8"))
     assert cache["publication_count"] == len(publication_paths())
     assert cache["updated_at"]
+
+
+def test_the_publications_page_is_a_plain_reference_list():
+    """No abstracts, no citation blocks -- authors, linked title, venue, year."""
+    page = (REPO_ROOT / "_pages" / "publications.html").read_text(encoding="utf-8")
+
+    assert "include archive-single" not in page, (
+        "archive-single.html prints the abstract and a 'Recommended citation' block"
+    )
+    assert "post.excerpt" not in page
+    assert "post.authors" in page
+    assert "post.paperurl" in page
+
+
+def test_the_publications_page_is_one_list_ordered_newest_first():
+    """Grouping by category is what put the 2026 preprints below the 2024 paper."""
+    page = (REPO_ROOT / "_pages" / "publications.html").read_text(encoding="utf-8")
+
+    assert 'sort: "date" | reverse' in page
+    assert "for category in site.publication_category" not in page
+
+
+def test_every_publication_the_page_links_has_somewhere_to_link_to():
+    for path in publication_paths():
+        meta = front_matter(path)
+        assert meta.get("paperurl") or meta.get("scholarurl"), (
+            f"{path.name} has neither paperurl nor scholarurl, so its title is a dead entry"
+        )
 
 
 def test_the_publications_page_reads_the_field_the_cache_actually_writes():

@@ -6,6 +6,7 @@ collection: publications
 category: preprints
 date: 2026-05-08
 venue: "arXiv preprint arXiv:2605.07699"
+authors: "Hsuvas Borkakoty, Sebastian Pohl, Cheng Wang, Bei Chen, Yufang Hou"
 paperurl: "https://arxiv.org/abs/2605.07699"
 scholarurl: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:2osOgNQ5qMEC"
 citation: "Hsuvas Borkakoty, Sebastian Pohl, Cheng Wang, Bei Chen, Yufang Hou. (2026). \"DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain.\" <i>arXiv preprint arXiv:2605.07699</i>."

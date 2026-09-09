@@ -247,6 +247,17 @@
     white-space: nowrap;
   }
 
+  /* The biographic lines (location, employer) are prose rather than short icon
+     links, so the nowrap above pushed a long employer name out of the sidebar,
+     where its overflow was clipped. Let them wrap; the negative indent keeps
+     the icon in a column of its own (fa-fw 1.25em + .icon-pad-right 1em). */
+  li.author__desktop {
+    white-space: normal;
+    padding-left: 2.25em;
+    text-indent: -2.25em;
+    margin-bottom: 5px;
+  }
+
   a {
     display: block;
     margin-bottom: 5px;

@@ -11,30 +11,45 @@ author_profile: true
      Scholar profile configured in _config.yml (author.googlescholar) and are
      refreshed by .github/workflows/update-publications.yml. Edit
      _data/publication_overrides.yml rather than the files in _publications/,
-     which are overwritten on every sync. -->
+     which are overwritten on every sync.
+
+     Deliberately not archive-single.html: that include prints the abstract and
+     a "Recommended citation" block. This page is a reference list -- authors,
+     title, venue, year -- with the title linking straight to the paper. -->
 
 {% if site.author.googlescholar %}
   <div class="wordwrap">This list is generated from <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>{% if site.data.scholar.updated_at %}, last updated on {{ site.data.scholar.updated_at | date: "%-d %B %Y" }}{% endif %}.</div>
 {% endif %}
 
-{% if site.publications.size == 0 %}
+{% comment %} Own name emphasised the way it is in a reference list. {% endcomment %}
+{% capture own_name %}<strong>{{ site.author.name }}</strong>{% endcapture %}
+
+{% comment %}
+  One flat list, strictly newest first: grouping by publication_category put
+  the 2026 preprints below the older conference papers. The venue line already
+  says which is which, so the headings carried no information the entry lacks.
+{% endcomment %}
+{% assign entries = site.publications | sort: "date" | reverse %}
+
+{% if entries.size == 0 %}
   <p>No publications are listed yet.</p>
-{% elsif site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
 {% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+  <ol class="publication-list">
+    {% for post in entries %}
+      {% assign authors = post.authors | strip | replace: site.author.name, own_name %}
+      {% assign link = post.paperurl | default: post.scholarurl %}
+      {% comment %} A title ending in '?' or '!' must not also gain a period. {% endcomment %}
+      {% assign last_char = post.title | strip | slice: -1 %}
+      {% if last_char == "." or last_char == "?" or last_char == "!" %}
+        {% assign title_end = "" %}
+      {% else %}
+        {% assign title_end = "." %}
+      {% endif %}
+      <li class="publication-list__item">
+        {% if post.authors %}<span class="publication-list__authors">{{ authors | append: "." | replace: "..", "." }}</span>{% endif %}
+        <span class="publication-list__title">{% if link %}<a href="{{ link }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}{{ title_end }}</span>
+        <span class="publication-list__venue"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}.</span>
+      </li>
+    {% endfor %}
+  </ol>
 {% endif %}

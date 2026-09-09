@@ -6,6 +6,7 @@ collection: publications
 category: conferences
 date: 2025-04-01
 venue: "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (System Demonstrations)"
+authors: "Max Ploner, Jacek Wiland, Sebastian Pohl, Alan Akbik"
 paperurl: "https://aclanthology.org/2025.naacl-demo.4/"
 scholarurl: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:d1gkVwhDpl0C"
 citation: "Max Ploner, Jacek Wiland, Sebastian Pohl, Alan Akbik. (2025). \"LM-PUB-QUIZ: A Comprehensive Framework for Zero-Shot Evaluation of Relational Knowledge in Language Models.\" <i>Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (System Demonstrations)</i>."

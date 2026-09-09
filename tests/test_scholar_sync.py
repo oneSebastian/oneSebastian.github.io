@@ -300,6 +300,7 @@ def test_render_markdown_emits_parseable_front_matter(records):
     assert "category: conferences" in front_matter
     assert "date: 2024-07-15" in front_matter
     assert 'paperurl: "https://example.org/papers/snakemake.pdf"' in front_matter
+    assert f"authors: {ss._yaml_quote(records[0]['authors'])}" in front_matter
     assert "Scientific workflow systems are widely used" in body
 
 

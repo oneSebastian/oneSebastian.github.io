@@ -6,6 +6,7 @@ collection: publications
 category: conferences
 date: 2025-08-01
 venue: "Proceedings of the First Workshop on Large Language Model Memorization (L2M2)"
+authors: "Sebastian Pohl, Max Ploner, Alan Akbik"
 paperurl: "https://aclanthology.org/2025.l2m2-1.4/"
 scholarurl: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:9yKSN-GCB0IC"
 citation: "Sebastian Pohl, Max Ploner, Alan Akbik. (2025). \"Towards a Principled Evaluation of Knowledge Editors.\" <i>Proceedings of the First Workshop on Large Language Model Memorization (L2M2)</i>."

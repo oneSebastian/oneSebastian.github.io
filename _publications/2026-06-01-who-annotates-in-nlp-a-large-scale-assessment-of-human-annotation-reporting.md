@@ -6,6 +6,7 @@ collection: publications
 category: preprints
 date: 2026-06-01
 venue: "arXiv preprint arXiv:2606.02255"
+authors: "Maria Kunilovskaya, Gagan Bhatia, Lisa Sophie Albertelli, Yanran Chen, Christian Greisinger, Lotta Kiefer, Christoph Leiter, Subhadeep Roy, Tewodros Achamaleh, Muhammad Arslan Manzoor, Sebastian Pohl, Yufang Hou, Steffen Eger"
 paperurl: "https://arxiv.org/abs/2606.02255"
 scholarurl: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7gohUaEAAAAJ&citation_for_view=7gohUaEAAAAJ:qjMakFHDy7sC"
 citation: "Maria Kunilovskaya, Gagan Bhatia, Lisa Sophie Albertelli, Yanran Chen, Christian Greisinger, Lotta Kiefer, Christoph Leiter, Subhadeep Roy, Tewodros Achamaleh, Muhammad Arslan Manzoor, Sebastian Pohl, Yufang Hou, Steffen Eger. (2026). \"Who Annotates in NLP? A Large-scale Assessment of Human Annotation Reporting between 2018 and 2025.\" <i>arXiv preprint arXiv:2606.02255</i>."
